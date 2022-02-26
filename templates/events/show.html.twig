@@ -1,0 +1,93 @@
+
+  
+{% extends 'base.html.twig' %}
+
+{% block title %}Events{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-center">Events</h1>
+
+
+<div class="<div class=' shadow bg-body rounded px-3 m-5' style='width:20rem" >
+  <img src="{{ event.image }}"  class='card-img-top' alt='...'height='500' >
+  <div class="card-body text-center"> 
+    <h2 class="card-title">{{ event.name }}</h2>
+     <h4 class="card-type">Event: {{ event.typeEvent }}</h4>
+    <p class="card-text">{{ event.description }}</p> 
+     <h4 class="card-type">capascity :{{event.capascity }}</h4>
+       <h4 class="card-type">Time: {{ event.createdAt ? event.createdAt|date('Y-m-d H:i:s') : '' }}</h4>
+      <h4 class="card-type">Email: {{ event.email }}</h4>
+       <h4 class="card-type"> Loction: {{ event.address }}</h4>
+        <h4 class="card-type">URL: {{ event.url }}</h4>
+    
+ {# <a href="{{ path('events_index') }}">back to list</a> #}
+ 
+    
+<div class="d-flex justify-content-center ">
+    <a class="btn btn-warning" href="{{ path('events_edit', {'id': event.id}) }}">edit</a>
+     {{ include('events/_delete_form.html.twig') }} 
+<div>
+
+   {#  <a href="{{ path('events_show', {'id': event.id}) }}" class="btn btn-primary"> showmor</a> #}
+  </div>
+    </div>
+       </div>
+
+
+
+
+{# 
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ event.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ event.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ event.description }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ event.createdAt ? event.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Capascity</th>
+                <td>{{ event.capascity }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ event.email }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ event.phone }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ event.address }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ event.image }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ event.url }}</td>
+            </tr>
+            <tr>
+                <th>Type_event</th>
+                <td>{{ event.typeEvent }}</td>
+            </tr>
+        </tbody>
+    </table> #}
+
+   
+
+  
+{% endblock %}

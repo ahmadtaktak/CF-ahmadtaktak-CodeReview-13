@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Events index{% endblock %}
+
+{% block body %}
+<div class="bakgraund  ">
+
+<img src="https://www.wien.info/resource/image/317314/Hero-Header/1890/700/a0de7130abba649175d19fed200acf73/Zz/wiener-eistraum-rathausplatz.jpg" alt="alt" width="100%" heigh="300px">
+</div>
+
+    <h1 class="text-center">Events in <img src="https://www.wien.info/assets/image/logos/Logo_en_mit-Claim.svg"alt="alt" width="10%" heigh="20px" ></h1>
+   
+        <div class="container row  content ">
+  
+        {% for event in events %}
+ {% if event.typeEvent == type  %}
+<div class="<div class=' col-lg-3 col-md-4 col-sm-12 shadow bg-body rounded content m-5 ' style='width: 20rem" >
+  <img  src="{{ event.image }}"  class='card-img-top' alt='...'height='200' >
+  <div class="card-body  text-center"> 
+    <a class="card-title a1" href="{{ path('events_show', {'id': event.id}) }}" class="card-title"> {{ event.name }}</a>
+     <h3 class="card-type">{{ event.typeEvent }}</h3>
+      <h6 class="card-type"> {{ event.createdAt ? event.createdAt|date('Y-m-d H:i:s') : '' }}</h6>
+    
+  </div>
+    </div>
+
+ {% endif %}
+ 
+        {% else %}
+            <div>
+               no records found
+            </div>
+        {% endfor %}
+    </div>
+
+ {#   <a href="{{ path('events_new') }}">Create new</a>  #}
+{% endblock %}
